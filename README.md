@@ -39,3 +39,16 @@ ssh-copy-id -i ~/.ssh/key.pub blueteam@192.168.[T].[X]
 # copy priv to backup
 scp ~/.ssh/[name] blueteam@192.168.[T].[X]
 ```
+
+## Services
+
+### Database
+
+Important files:
+- /etc/postgresql/14/main/pg_hba.conf
+- /etc/postgresql/14/main/postgres.conf
+
+Back up the whole database:
+```bash
+ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no root@<POSTGRES_IP> "sudo -u postgres pg_dumpall -c" | gzip > /home/blueteam/database/postgres/db_dump_$(date +%Y-%m-%d_%H-%M-%S).sql.gz
+```
