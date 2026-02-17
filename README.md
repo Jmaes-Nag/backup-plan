@@ -48,6 +48,12 @@ Important files:
 - /etc/postgresql/14/main/pg_hba.conf
 - /etc/postgresql/14/main/postgres.conf
 
+To setup postgres backup, be sure to add the following line to visudo:
+```
+blueteam ALL=(postgres) NOPASSWD: /usr/bin/pg_dumpall
+```
+This file ensures that specifically for the command `pg_dumpall`, a password is not required
+
 Back up the whole database:
 ```bash
 ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no root@<POSTGRES_IP> "sudo -u postgres pg_dumpall -c" | gzip > /home/blueteam/database/postgres/db_dump_$(date +%Y-%m-%d_%H-%M-%S).sql.gz
