@@ -1,6 +1,8 @@
 # General Plan
 Because if you fail to plan, you plan to fail.
 
+In an environment, you never know if someone is compromised. Therefore, the backup server will not allow inbound connections, but will instead reach out to other servers and copy from the service server to the backup server.
+
 ## Breaking into the machine
 Sometimes you forget your credentials, here's how to reset them on linux as long as the boot drive isn't encrypted.
 
@@ -11,3 +13,29 @@ Method: Using Recovery Mode
 4. Mount the drive: `mount -o remount,rw /`.
 5. Reset the password: `passwd [USERNAME]`.
 6. Reboot and login.
+
+## Firewall Rules
+We only want what we want to come in.
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default deny outgoing
+sudo ufw allow out to any port 22 proto tcp
+sudo ufw enable
+sudo status verbose
+```
+
+## Setup SSH connection from Backup
+1. Generate ssh key pairs for the VMs (Web, DNS, DB)
+2. Move public keys to the blueteam accepted keys
+
+```bash
+# create the key, follow prompts
+ssh-keygen
+
+# copy the pubkey to service machine
+ssh-copy-id -i ~/.ssh/key.pub blueteam@192.168.[T].[X]
+
+# copy priv to backup
+scp ~/.ssh/[name] blueteam@192.168.[T].[X]
+```
