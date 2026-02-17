@@ -40,7 +40,11 @@ ssh-copy-id -i ~/.ssh/key.pub blueteam@192.168.[T].[X]
 scp ~/.ssh/[name] blueteam@192.168.[T].[X]
 ```
 
-## Services
+## Machines
+
+### Web
+
+### DNS
 
 ### Database
 
