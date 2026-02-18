@@ -12,4 +12,4 @@ Host web
 Host database
     HostName 192.168.103.4
     User blueteam
-    IdentityFile ~/.ssh/backup_rsa
+    IdentityFile ~/.ssh/database_rsa
