@@ -1,0 +1,15 @@
+# To become ~/.ssh/config
+Host dns
+    HostName 192.168.103.2
+    User blueteam
+    IdentityFile ~/.ssh/dns_rsa
+
+Host web
+    HostName 192.168.103.3
+    User blueteam
+    IdentityFile ~/.ssh/web_rsa
+
+Host database
+    HostName 192.168.103.4
+    User blueteam
+    IdentityFile ~/.ssh/backup_rsa
