@@ -12,7 +12,8 @@ Method: Using Recovery Mode
 3. In the recovery menu, scroll down and select `root`.
 4. Mount the drive: `mount -o remount,rw /`.
 5. Reset the password: `passwd [USERNAME]`.
-6. Reboot and login.
+6. Set the new password
+7. Reboot and login.
 
 ## Firewall Rules
 We only want what we want to come in.
@@ -22,7 +23,7 @@ sudo ufw default deny incoming
 sudo ufw default deny outgoing
 sudo ufw allow out to any port 22 proto tcp
 sudo ufw enable
-sudo status verbose
+sudo ufw status verbose
 ```
 
 ## Setup SSH connection from Backup
