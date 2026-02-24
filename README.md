@@ -56,6 +56,8 @@ Important files:
 To setup postgres backup, be sure to add the following line to visudo:
 ```
 blueteam ALL=(postgres) NOPASSWD: /usr/bin/pg_dumpall
+blueteam ALL=(postgres) NOPASSWD: /usr/bin/cat /etc/postgresql/12/pg_hba.conf
+blueteam ALL=(postgres) NOPASSWD: /usr/bin/cat /etc/postgresql/12/postgresql.conf
 ```
 This file ensures that specifically for the command `pg_dumpall`, a password is not required
 
