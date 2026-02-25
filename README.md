@@ -43,6 +43,8 @@ scp ~/.ssh/[name] blueteam@192.168.[T].[X]
 
 ## Machines
 
+Before backing up... update time: `sudo timedatectl set-timezone America/Boise
+
 ### Web
 
 ### DNS
