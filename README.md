@@ -67,3 +67,12 @@ Back up the whole database:
 ```bash
 ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no root@<POSTGRES_IP> "sudo -u postgres pg_dumpall -c" | gzip > /home/blueteam/database/postgres/db_dump_$(date +%Y-%m-%d_%H-%M-%S).sql.gz
 ```
+
+## Automating
+
+On Backup server
+
+Automate the backup by adding the following (`crontab -e`):
+```
+*/30 * * * * /bin/bash /home/blueteam/save_pg.sh
+```
